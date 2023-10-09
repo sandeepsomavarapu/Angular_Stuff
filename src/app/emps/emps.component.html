@@ -6,20 +6,21 @@
 
 <body>
     <table class="table table-striped">
-        <tr>
-            <th>empno</th>
-            <th>empname</th>
+        <tr class="table-dark">
+            <th>Empno</th>
+            <th>Empname</th>
             <th>DOB</th>
-            <th>gender</th>
-            <th>salary</th>
+            <th>Gender</th>
+            <th>Salary</th>
         </tr>
-        <tr *ngFor="let emp of emps">
+        <tr *ngFor="let emp of emps" class="table-primary">
             <td>{{ emp.empcode }}</td>
-            <td>{{ emp.name }}</td>
-            <td>{{ emp.dateOfBirth }}</td>
+            <td>{{ emp.name|gender:emp.gender }}</td>
+            <td>{{ emp.dateOfBirth|date:'fullDate' }}</td>
             <td>{{ emp.gender }}</td>
-            <td>{{ emp.sal }}</td>
+            <td>{{ emp.sal|currency:'INR' }}</td>
         </tr>
+        <tr *ngIf="emps.length==0"> No Employees Found</tr>
     </table>
 </body>
 
