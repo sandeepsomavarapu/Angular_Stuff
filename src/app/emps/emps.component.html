@@ -1,0 +1,26 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <table class="table table-striped">
+        <tr>
+            <th>empno</th>
+            <th>empname</th>
+            <th>DOB</th>
+            <th>gender</th>
+            <th>salary</th>
+        </tr>
+        <tr *ngFor="let emp of emps">
+            <td>{{ emp.empcode }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.dateOfBirth }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.sal }}</td>
+        </tr>
+    </table>
+</body>
+
+</html>
