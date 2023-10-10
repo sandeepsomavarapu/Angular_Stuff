@@ -1,0 +1,8 @@
+<div align='center'>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <h3>Create Employee</h3>
+      Full Name :<input type="text" formControlName="fullName"><br><br>
+      Email :<input type="text" formControlName="email"><br><br>
+               <button type="submit">Save</button>
+    </form>
+  </div>
