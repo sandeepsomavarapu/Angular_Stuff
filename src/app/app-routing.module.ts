@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EmpsComponent } from './emps/emps.component';
+import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 
 const routes: Routes = [
 
 {path:"login",component:LoginComponent},
 {path:"register",component:RegisterComponent},
 {path:"emps",component:EmpsComponent},
+{path:"tform",component:TemplateDrivenComponent},
 {path:"",component:LoginComponent},
 
 ];

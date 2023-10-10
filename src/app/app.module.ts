@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EmpsComponent } from './emps/emps.component';
 import { GenderPipe } from './gender.pipe';
+import { FormsModule } from '@angular/forms';
+import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,12 @@ import { GenderPipe } from './gender.pipe';
     LoginComponent,
     RegisterComponent,
     EmpsComponent,
-    GenderPipe
+    GenderPipe,
+    TemplateDrivenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
