@@ -1,43 +1,87 @@
+
 <div class="container">
-    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-  
-      <p class="form-group">
-        <label for="firstname">First Name</label>
-        <input type="text" class="form-control" name="firstname" ngModel>
-      </p>
-  
-      <p  class="form-group">
-        <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" name="lastname" ngModel>
-      </p>
-  
-      <p class="form-group">
-        <label for="email">Email </label>
-        <input type="text" class="form-control" id="email" name="email" ngModel>
-      </p>
-  
-      <p class="form-group">
-        <label for="gender">Gender</label>
-        <input type="radio" value="male" name="gender" ngModel> Male
-        <input type="radio" value="female" name="gender" ngModel> Female
-      </p>
-  
-      <p class="form-group form-check">
-        <label for="isMarried" >Married</label>
-        <input type="checkbox"  name="isMarried" ngModel>
-        <label for="isMarried">Single</label>
-        <input type="checkbox"  name="unMarried" ngModel>
-      </p>
-  
-      <select class="form-group" name="country" ngModel>
-        <option [ngValue]="c.id" *ngFor="let c of countryList">
-          {{c.name}}
-        </option>
-      </select><br>
-  
-      <p>
-        <button class="btn btn-outline-danger" type="submit">Submit</button>
-      </p>
-  
-    </form>
+
+  <h3>ADD EMPLOYEE</h3>
+
+<form #userForm="ngForm" (ngSubmit)='onSubmit(userForm)'>
+
+  <div class="form-group">  
+
+      <label>EMPLOYEE ID: </label>
+
+      <input required minlength="1" type="number" #empIdRef='ngModel' name="id" ngModel class="form-control">
+
+      <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+          <div [hidden]='!empIdRef.errors.required'> Provide Employee Id </div>
+
+      </div>
   </div>
+  <div class="form-group">
+
+      <label>EMPLOYEE NAME: </label>
+
+      <input required minlength="6" type="text" #empNameRef='ngModel' name="name" ngModel class="form-control">
+
+      <div *ngIf='empNameRef.errors
+                  && empNameRef.touched' class="alert alert-danger">
+          <div *ngIf='empNameRef.errors.required'>Provide Employee Name </div>
+          <div *ngIf='!empNameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+      </div>
+
+  </div>
+  <div class="form-group">
+
+      <label>EMPLOYEE SALARY: </label>
+
+      <input required  length="10" type="number" #empsalRef='ngModel' name="salary" ngModel class="form-control">
+
+      <div *ngIf='empsalRef.errors && empsalRef.touched' class="alert alert-danger">
+
+          <div [hidden]='!empsalRef.errors.required'> Provide Employee Salary </div>
+
+      </div>
+  </div>
+
+  <div class="form-group">
+
+      <label>PHONE NUMBER: </label>
+
+      <input required length="10" type="number" #empphoneRef='ngModel' pattern="[0-9]{10}" name="phonenumber" ngModel class="form-control">
+
+      <div *ngIf='empphoneRef.errors && empphoneRef.touched' class="alert alert-danger">
+
+          <div [hidden]='!empphoneRef.errors.required'> Provide Employee Phone Number </div>
+
+          <div [hidden]='empNameRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+      </div>
+  </div>
+
+  <div class="form-group">
+
+      <label>COMPANY: </label>
+
+      <input required minlength="6" type="text" #empcompanyName='ngModel' name="company" ngModel
+          class="form-control">
+
+      <div *ngIf='empcompanyName.errors
+                  && empcompanyName.touched' class="alert alert-danger">
+
+          <div [hidden]='!empcompanyName.errors.required'>
+
+              Provide Employee Company Name
+          </div>
+          <div [hidden]='empcompanyName.errors.pattern'>Company name should be minimum of 6 characters length</div>
+
+      </div>
+
+  </div>
+  <input  type="submit" value="Add Employee" class="btn btn-primary">
+
+</form>
+
+</div>
+<div>
+
+</div>
