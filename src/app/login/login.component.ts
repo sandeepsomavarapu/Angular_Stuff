@@ -8,14 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  username:string;
+  password:string;
   constructor(private router:Router)
   {
 
   }
   validate(formData:NgForm)
   {
-    if(formData.value.uname==="fisglobal" && formData.value.pswd==="fis@123")
+   this.username=formData.value.uname;
+   this.password=formData.value.pswd;
+    if(this.username==="fisglobal" && this.password==="fis@123")
       {
+        localStorage.setItem("uname",this.username)
+        localStorage.setItem("password",this.password)
         alert("login success");
         this.router.navigate(['/emps'])
       }
