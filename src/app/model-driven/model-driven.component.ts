@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-model-driven',
@@ -8,18 +8,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ModelDrivenComponent {
   // This FormGroup contains fullName and Email form controls
-  employeeForm: FormGroup;
+  loginForm: FormGroup;
   constructor() {
-    this.employeeForm = new FormGroup({
-      fullName: new FormControl(),
-      email: new FormControl()
+    this.loginForm = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      password: new FormControl(null, [Validators.required, Validators.maxLength(8)])
     });
   }
-  onSubmit(): void {
-    console.log(this.employeeForm)
-
-    console.log(this.employeeForm.controls.fullName.value);
-    alert(this.employeeForm.get("email").value);
-
+  loginUser() {
+    console.log(this.loginForm.status);
+    console.log(this.loginForm.value);
   }
 }
